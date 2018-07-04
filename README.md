@@ -2,6 +2,7 @@
 lbuilder is a Lua library to aid creating and building patterns. It uses operator overloading based on Lpeg.
 
 ## Reference
+
 | **Unions**       | **Use**                                             |
 | ------------ | ----------------------------------------------- |
 | lbuilder.P   | Creates a new pattern                           |
@@ -36,7 +37,7 @@ lbuilder is a Lua library to aid creating and building patterns. It uses operato
 This project is licensed under the MIT License.
 
 ## Documentation
-You can find the documentation at the [wiki](http://me.daelvn.ga/lbuilder/wiki)
+You can find the documentation at the [wiki](http://lbuilder.daelvn.ga/wiki)
 
 ## Installation
 You can install this library using LuaRocks
