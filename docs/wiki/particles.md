@@ -7,6 +7,10 @@ local literal = lbuilder.l "Hello"
 -- Named literal
 local namedLiteral = lbuilder.l ("example:hello", "Hello")
 ```
+> Since 1.1, this will escape all magic characters
+
+## lbuilder:particle:normal (n)
+Matches the string passed as a pattern. Use `lbuilder.n` to create one.
 
 ## lbuilder:particle:set (s)
 Creates a set of characters, supports ranges. Use `lbuilder.s` to create one.
@@ -32,7 +36,7 @@ local calphabet = lbuilder.c ("alphabet", alphabet)
 # Operators
 ## `+` operator
 ### l + l
-Joins two literals.
+Joins two literals or normals.
 `l+l => ll`
 ### s + s
 Joins two sets.
@@ -57,6 +61,7 @@ Match the set zero or more, as less as possible.
 Optionally match the set.
 `p/'?' => p?`
 > Only works for literals and sets.
+
 ### p/'`*`'
 Match the set zero or more, as much as possible.
 `p/'*' => p*`

@@ -65,7 +65,9 @@ lbuilder.meta.particle = {
         this.value = this.value .. "[^" .. this.value .. "]"
       end
     elseif op:match "[+?*-]" then
-      if this.type ~= "lbuilder:particle:set" and this.type ~= "lbuilder:particle:literal" then
+      if this.type ~= "lbuilder:particle:set"
+      and this.type ~= "lbuilder:particle:literal"
+      and this.type ~= "lbuilder:particle:normal" then
         error ("Invalid parameter to s/?: Attempt to operate on " .. this.type)
       end
       this.value = this.value .. op
@@ -94,7 +96,16 @@ lbuilder.meta.particle = {
 -- Literal
 function lbuilder.l (name, builder)
   local particle = setmetatable (
-    { name = builder and name or "?", value = builder or name, type = "lbuilder:particle:literal" },
+    { name = builder and name or "?", value = lbuilder.sanitize (builder or name), type = "lbuilder:particle:literal" },
+    lbuilder.meta.particle
+  )
+  if builder and name then lbuilder.saved [name] = particle end
+  return particle
+end
+-- Normal
+function lbuilder.n (name, builder)
+  local particle = setmetatable (
+    { name = builder and name or "?", value = builder or name, type = "lbuilder:particle:normal" },
     lbuilder.meta.particle
   )
   if builder and name then lbuilder.saved [name] = particle end
