@@ -18,7 +18,7 @@ lbuilder is a Lua library to aid creating and building patterns. It uses operato
 | P .. P          | Combines two patterns with brackets                                   |
 | p + p           | Combines two particles                                                |
 | -s              | Negates a set                                                         |
-| s/"*\*"           | Equivalent to \*                                                      |
+| s/"\*"          | Equivalent to \*                                                      |
 | s/"+"           | Equivalent to +                                                       |
 | s/"-"           | Equivalent to -                                                       |
 | s/"?"           | Equivalent to ?                                                       |
@@ -26,7 +26,7 @@ lbuilder is a Lua library to aid creating and building patterns. It uses operato
 | p/-n            | Repeats the particle n-1 times and negates the nth particle           |
 | #p              | Creates a pattern from a particle                                     |
 | P % str         | Tests a pattern                                                       |
-| P <= str        | Matches a pattern and returns captures                                | 
+| P * str        | Matches a pattern and returns captures                                | 
 | P /str/rep/n    | Replaces the pattern in a string n times and returns str              |
 | P /str/fn/n     | Passes a function to the replace and replaces n times and returns str |
 | P /str/rep/bool | Replaces the pattern in a string if bool and returns str              |
