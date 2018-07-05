@@ -15,6 +15,7 @@ lbuilder.meta = {}
 
 --# Includes #--
 lbuilder.saved = {}
+function lbuilder.G (elem) return elem.value end
 function lbuilder.I (name) return lbuilder.saved [name].value end
 function lbuilder.T (name) return lbuilder.saved [name] end
 
