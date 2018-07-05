@@ -21,6 +21,14 @@ function lbuilder.T (name) return lbuilder.saved [name] end
 
 --# Particles #--
 lbuilder.meta.particle = {
+  -- p [name]
+  __index = function (this, name)
+    if name ~= "type" and name ~= "value" and name ~= "name" then
+      lbuilder.saved [name] = this
+    else
+      return this [name]
+    end
+  end,
   -- p + p
   __add = function (this, p2)
     if not p2.type:match "^lbuilder:particle" then
@@ -130,9 +138,25 @@ function lbuilder.c (name, builder)
   if builder and name then lbuilder.saved [name] = particle end
   return particle
 end
+-- Capture from particle
+function lbuilder.C (name, builder)
+  local particle = setmetatable (
+    { name = builder and name or "?", value = "(" .. (builder or name) .. ")", type = "lbuilder:particle:capture" },
+    lbuilder.meta.particle
+  )
+  if builder and name then lbuilder.saved [name] = particle end
+end
 
 --# Patterns #--
 lbuilder.meta.pattern = {
+  -- P [name]
+  __index = function (this, name)
+    if name ~= "type" and name ~= "value" and name ~= "name" then
+      lbuilder.saved [name] = this
+    else
+      return this [name]
+    end
+  end,
   -- P + P
   __add    = function (this, P2)
     this.value = this.value .. P2.value

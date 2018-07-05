@@ -6,8 +6,12 @@ Matches the string passed literally. Use `lbuilder.l` to create one.
 local literal = lbuilder.l "Hello"
 -- Named literal
 local namedLiteral = lbuilder.l ("example:hello", "Hello")
+-- Short naming
+local shortNamedLiteral = lbuilder.l "Hello" ["example:hello"]
 ```
 > Since 1.1, this will escape all magic characters
+
+> As of 1.3, all particles can be named with indexing
 
 ## lbuilder:particle:normal (n)
 Matches the string passed as a pattern. Use `lbuilder.n` to create one.
@@ -24,7 +28,7 @@ local _alphabet = lbuilder.s ("alphabet", "a-z")
 local notAlphabet = lbuilder.s "a-z" (true)
 ```
 
-## lbuilder:particle:capture (c)
+## lbuilder:particle:capture (c/C)
 Creates a capture, supports ranges. Use `lbuilder.c` to create one.
 ```lua
 -- Anonymous captures
@@ -32,6 +36,7 @@ local cvowels = lbuilder.c (vowels)
 -- Named captures
 local calphabet = lbuilder.c ("alphabet", alphabet)
 ```
+You can optionally use `lbuilder.C` to create a capture of a particle.
 
 # Operators
 ## `+` operator
