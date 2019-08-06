@@ -1,5 +1,5 @@
 package = "lbuilder"
-version = "1.3-1"
+version = "1.3-2"
 
 source = {
   url = "git://github.com/daelvn/lbuilder",
@@ -13,7 +13,6 @@ description = {
     in an Lpeg-manner.
   ]],
   homepage = "http://lbuilder.daelvn.ga/",
-  license  = "MIT"
 }
 
 dependencies = {

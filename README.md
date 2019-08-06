@@ -34,7 +34,7 @@ lbuilder is a Lua library to aid creating and building patterns. It uses operato
 | P /str/fn/bool  | Passes a function to the replace and replaces if bool, returns str    |
 
 ## License
-This project is licensed under the MIT License.
+This project is released to the public domain
 
 ## Documentation
 You can find the documentation at the [wiki](http://lbuilder.daelvn.ga/wiki)
